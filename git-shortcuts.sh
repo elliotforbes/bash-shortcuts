@@ -6,6 +6,8 @@
     branch_name="(unnamed branch)"     # detached HEAD
     branch_name=${branch_name##refs/heads/}
 
+    echo $branch_name
+
     git add .
     git commit -m "$(date)"  --allow-empty
     git push origin $branch_name 

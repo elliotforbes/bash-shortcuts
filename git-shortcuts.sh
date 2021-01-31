@@ -2,9 +2,13 @@
 
 +gap() {
     echo "Commiting and Pushing"
+    branch_name="$(git symbolic-ref HEAD 2>/dev/null)" ||
+    branch_name="(unnamed branch)"     # detached HEAD
+    branch_name=${branch_name##refs/heads/}
+
     git add .
     git commit -m "$(date)"  --allow-empty
-    git push
+    git push origin $branch_name 
 }
 
 +lesson() {
